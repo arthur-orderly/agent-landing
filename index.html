@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur DEX - Built for AI Agents</title>
+    <meta name="description" content="The only perpetual DEX built specifically for AI agents. Trade in 3 lines of code.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦊</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --bg: #0d0b1e;
+            --bg-card: #1a1825;
+            --text: #ffffff;
+            --text-dim: #9ca3af;
+            --green: #00D26A;
+            --code-bg: #1a1825;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Nav */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 100px;
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        /* Code Block */
+        .code-block {
+            background: var(--code-bg);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid #333;
+        }
+        
+        .code-block pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+        
+        .code-block .comment { color: #6a737d; }
+        .code-block .keyword { color: #ff79c6; }
+        .code-block .string { color: #f1fa8c; }
+        .code-block .function { color: #50fa7b; }
+        .code-block .number { color: #bd93f9; }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .code-header span {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+        
+        .copy-btn {
+            background: #333;
+            border: none;
+            color: var(--text-dim);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .copy-btn:hover {
+            background: #444;
+            color: var(--text);
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 60px 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #222;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: var(--text-dim);
+            font-size: 15px;
+        }
+        
+        /* Use Cases */
+        .use-cases {
+            padding: 80px 0;
+            background: var(--bg-card);
+        }
+        
+        .use-cases h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .use-case {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #333;
+        }
+        
+        .use-case h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .use-case p {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+        
+        .use-case code {
+            display: block;
+            background: var(--code-bg);
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            color: var(--text-dim);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: var(--text-dim);
+        }
+        
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr; }
+            .use-cases-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="https://arthurdex.com" class="logo"><img src="https://arthurdex.com/logo.webp" alt="Arthur">Arthur</a>
+            <ul class="nav-links">
+                <li><a href="https://docs.arthurdex.com">Docs</a></li>
+                <li><a href="https://github.com/arthur-orderly/arthur-sdk">GitHub</a></li>
+            </ul>
+            <a href="https://arthurdex.com" class="btn">Launch App →</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                🤖 Built for AI Agents
+            </div>
+            <h1>Trade Perps in<br><span>3 Lines of Code</span></h1>
+            <p>Arthur DEX is the only perpetual futures exchange built specifically for AI agents. Powered by Orderly Network.</p>
+            
+            <div class="hero-buttons">
+                <a href="https://docs.arthurdex.com/quickstart/" class="btn">Get Started →</a>
+                <a href="https://github.com/arthur-orderly/arthur-sdk" class="btn btn-outline">View on GitHub</a>
+            </div>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>Python</span>
+                    <button class="copy-btn" onclick="copyCode()">Copy</button>
+                </div>
+                <pre><code><span class="keyword">from</span> arthur_sdk <span class="keyword">import</span> Arthur
+
+client = Arthur.from_credentials_file(<span class="string">"creds.json"</span>)
+client.buy(<span class="string">"ETH"</span>, usd=<span class="number">100</span>)  <span class="comment"># That's it! 🚀</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container" style="display: contents;">
+            <div class="stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Lines to First Trade</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">&lt;100ms</div>
+                <div class="stat-label">Order Latency</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">0.02%</div>
+                <div class="stat-label">Maker Rebate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Markets Open</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Agents Choose Arthur</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Integration</h3>
+                    <p>pip install arthur-sdk and start trading. No complex setup, no API key hassles. Just code.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Fees</h3>
+                    <p>0.06% taker fees, 0.02% maker rebates. Lower than Binance, Hyperliquid, and dYdX.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Deep Liquidity</h3>
+                    <p>Powered by Orderly Network's unified liquidity. Trade BTC, ETH, and 30+ perps.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Non-Custodial</h3>
+                    <p>Your keys, your coins. Trade directly from your wallet with on-chain settlement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Agent-First Design</h3>
+                    <p>Built from day one for programmatic trading. Clean API, great SDK, no CAPTCHA.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Data</h3>
+                    <p>WebSocket feeds for orderbook, trades, and positions. Build responsive agents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <h2>What Can You Build?</h2>
+            <div class="use-cases-grid">
+                <div class="use-case">
+                    <h3>🎯 DCA Bot</h3>
+                    <p>Automatically buy the dip with a simple schedule.</p>
+                    <code>client.buy("BTC", usd=100)  # Every day at 9 AM</code>
+                </div>
+                <div class="use-case">
+                    <h3>📈 Trend Follower</h3>
+                    <p>React to RSI, MACD, or any indicator.</p>
+                    <code>if rsi < 30: client.buy("ETH", usd=500)</code>
+                </div>
+                <div class="use-case">
+                    <h3>⚖️ Arbitrage Agent</h3>
+                    <p>Capture price differences across venues.</p>
+                    <code>if arthur_price < binance_price: client.buy("SOL")</code>
+                </div>
+                <div class="use-case">
+                    <h3>🤖 AI Trading Agent</h3>
+                    <p>Let GPT-4 or Claude make trading decisions.</p>
+                    <code>action = llm.decide(market_data); execute(action)</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Trading in 60 Seconds</h2>
+            <p>Install the SDK, add your credentials, and execute your first trade.</p>
+            <div class="hero-buttons">
+                <a href="https://docs.arthurdex.com/quickstart/" class="btn">Read the Docs →</a>
+                <a href="https://arthurdex.com" class="btn btn-outline">Trade Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Built with 🧡 for AI agents | <a href="https://orderly.network">Powered by Orderly Network</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode() {
+            const code = `from arthur_sdk import Arthur
+
+client = Arthur.from_credentials_file("creds.json")
+client.buy("ETH", usd=100)`;
+            navigator.clipboard.writeText(code);
+            document.querySelector('.copy-btn').textContent = 'Copied!';
+            setTimeout(() => {
+                document.querySelector('.copy-btn').textContent = 'Copy';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
