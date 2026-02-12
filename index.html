@@ -42,6 +42,10 @@
         nav {
             padding: 20px 0;
             border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 50;
         }
         
         nav .container {
@@ -320,6 +324,301 @@
             font-size: 13px;
             overflow-x: auto;
         }
+
+        /* ═══════════════════════════════════════════════════ */
+        /* Templates Section                                   */
+        /* ═══════════════════════════════════════════════════ */
+        .templates {
+            padding: 80px 0;
+        }
+
+        .templates h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .templates .section-sub {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .template-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #222;
+            transition: border-color 0.2s;
+        }
+
+        .template-card:hover {
+            border-color: var(--primary);
+        }
+
+        .template-card .template-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .template-card .template-header h3 {
+            font-size: 20px;
+        }
+
+        .template-card .template-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .template-card .template-meta span {
+            font-size: 13px;
+            color: var(--text-dim);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 2px 10px;
+            border-radius: 100px;
+        }
+
+        .template-card p {
+            color: var(--text-dim);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .template-card pre {
+            background: var(--bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .template-card pre .comment { color: #6a737d; }
+        .template-card pre .keyword { color: #ff79c6; }
+        .template-card pre .string { color: #f1fa8c; }
+        .template-card pre .function { color: #50fa7b; }
+        .template-card pre .number { color: #bd93f9; }
+
+        .templates .section-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ═══════════════════════════════════════════════════ */
+        /* Showcase Section                                    */
+        /* ═══════════════════════════════════════════════════ */
+        .showcase {
+            padding: 80px 0;
+            background: var(--bg-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(139,92,246,0.06), transparent 70%);
+            pointer-events: none;
+        }
+
+        .showcase h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .showcase .section-sub {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            position: relative;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .showcase-card {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #333;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .showcase-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .showcase-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .showcase-card-header .agent-avatar {
+            font-size: 32px;
+        }
+
+        .showcase-card-header h3 {
+            font-size: 20px;
+        }
+
+        .showcase-card-header .status-badge {
+            margin-left: auto;
+            font-size: 13px;
+            padding: 4px 12px;
+            background: rgba(0, 210, 106, 0.1);
+            color: var(--green);
+            border-radius: 100px;
+        }
+
+        .showcase-card .agent-type {
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .showcase-card .agent-desc {
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .showcase-card .agent-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .showcase-card .agent-stats .stat-item {
+            text-align: center;
+            background: rgba(139, 92, 246, 0.06);
+            border-radius: 8px;
+            padding: 10px 4px;
+        }
+
+        .showcase-card .agent-stats .stat-val {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .showcase-card .agent-stats .stat-lbl {
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        .showcase .section-cta {
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        /* ═══════════════════════════════════════════════════ */
+        /* Deploy Section                                      */
+        /* ═══════════════════════════════════════════════════ */
+        .deploy {
+            padding: 80px 0;
+        }
+
+        .deploy h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .deploy .section-sub {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .deploy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .deploy-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #222;
+            transition: border-color 0.2s;
+        }
+
+        .deploy-card:hover {
+            border-color: var(--primary);
+        }
+
+        .deploy-card .deploy-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .deploy-card .deploy-header h3 {
+            font-size: 20px;
+        }
+
+        .deploy-card .deploy-tag {
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 100px;
+            background: rgba(0, 210, 106, 0.1);
+            color: var(--green);
+            margin-left: auto;
+        }
+
+        .deploy-card p {
+            color: var(--text-dim);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .deploy-card pre {
+            background: var(--bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            color: var(--green);
+        }
         
         /* CTA */
         .cta {
@@ -357,6 +656,9 @@
             .stats { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr; }
             .use-cases-grid { grid-template-columns: 1fr; }
+            .template-grid { grid-template-columns: 1fr; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .deploy-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
     </style>
@@ -367,9 +669,12 @@
             <a href="https://agents.arthurdex.com" class="logo"><img src="https://arthurdex.com/logo.webp" alt="Arthur"></a>
             <ul class="nav-links">
                 <li><a href="https://agents.arthurdex.com">Home</a></li>
-                <li><a href="https://docs.arthurdex.com">Docs</a></li>
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#showcase">Showcase</a></li>
+                <li><a href="#deploy">Deploy</a></li>
+                <li><a href="https://github.com/arthur-orderly/agent-trading-sdk">Docs</a></li>
                 <li><a href="https://github.com/arthur-orderly/agent-trading-sdk">GitHub</a></li>
-                <li><a href="https://volume.arthurdex.com">Volume</a></li>
+                <li><a href="https://volume.arthurdex.com/">Volume</a></li>
             </ul>
             <a href="https://arthurdex.com" class="btn">Trade →</a>
         </div>
@@ -384,7 +689,7 @@
             <p>Arthur DEX is the only perpetual futures exchange built specifically for AI agents. Powered by Orderly.</p>
             
             <div class="hero-buttons">
-                <a href="https://docs.arthurdex.com/quickstart/" class="btn">Get Started →</a>
+                <a href="https://github.com/arthur-orderly/agent-trading-sdk#quickstart" class="btn">Get Started →</a>
                 <a href="https://github.com/arthur-orderly/agent-trading-sdk" class="btn btn-outline">View on GitHub</a>
             </div>
             
@@ -467,12 +772,259 @@ client.buy(<span class="string">"ETH"</span>, usd=<span class="number">100</span
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- TEMPLATES SECTION                                       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="templates" id="templates">
+        <div class="container">
+            <h2>🧩 Agent Templates</h2>
+            <p class="section-sub">Production-ready trading bots. Clone, configure, deploy. Each template is a complete Python bot with built-in backtesting.</p>
+
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="template-header">
+                        <span style="font-size:28px">🎯</span>
+                        <h3>DCA Bot</h3>
+                    </div>
+                    <div class="template-meta">
+                        <span>⭐ Simple</span>
+                        <span>Any Market</span>
+                        <span>Set &amp; Forget</span>
+                    </div>
+                    <p>Buys a fixed USD amount at regular intervals. Emotion-free accumulation with built-in risk guardrails. Runs as a background thread.</p>
+                    <pre><code><span class="keyword">from</span> arthur_sdk <span class="keyword">import</span> Arthur, Agent
+
+client = Arthur.from_credentials_file(<span class="string">"creds.json"</span>)
+agent = Agent(client, max_drawdown=<span class="number">500</span>)
+
+<span class="comment"># DCA $50 into ETH every hour — runs in background</span>
+agent.dca(<span class="string">"ETH"</span>, <span class="string">"BUY"</span>, amount_usd=<span class="number">50</span>,
+    interval_seconds=<span class="number">3600</span>)</code></pre>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-header">
+                        <span style="font-size:28px">📊</span>
+                        <h3>Grid Bot</h3>
+                    </div>
+                    <div class="template-meta">
+                        <span>⭐⭐ Medium</span>
+                        <span>Sideways</span>
+                        <span>Check Daily</span>
+                    </div>
+                    <p>Places layered buy/sell orders across a price range. Buys below mid, sells above. Profits from oscillations in range-bound markets.</p>
+                    <pre><code><span class="keyword">from</span> arthur_sdk <span class="keyword">import</span> Arthur, Agent
+
+client = Arthur.from_credentials_file(<span class="string">"creds.json"</span>)
+agent = Agent(client, max_position_usd=<span class="number">500</span>)
+
+<span class="comment"># ETH grid: $1900–$2100, 5 levels, 0.1 ETH each</span>
+agent.grid(<span class="string">"ETH"</span>, lower=<span class="number">1900</span>,
+    upper=<span class="number">2100</span>, levels=<span class="number">5</span>,
+    size_per_level=<span class="number">0.1</span>)</code></pre>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-header">
+                        <span style="font-size:28px">📈</span>
+                        <h3>RSI Momentum</h3>
+                    </div>
+                    <div class="template-meta">
+                        <span>⭐⭐ Medium</span>
+                        <span>Trending</span>
+                        <span>Med-High Risk</span>
+                    </div>
+                    <p>Fetches klines from Orderly API, calculates RSI, buys oversold, sells overbought. Uses the SDK for execution.</p>
+                    <pre><code><span class="keyword">from</span> arthur_sdk <span class="keyword">import</span> Arthur
+<span class="keyword">import</span> requests, numpy <span class="keyword">as</span> np
+client = Arthur.from_credentials_file(<span class="string">"creds.json"</span>)
+
+<span class="comment"># Fetch 4h candles from Orderly API</span>
+url = <span class="string">"https://api-evm.orderly.org/v1/public/kline"</span>
+r = requests.get(url, params={
+    <span class="string">"symbol"</span>: <span class="string">"PERP_ETH_USDC"</span>,
+    <span class="string">"type"</span>: <span class="string">"4h"</span>, <span class="string">"limit"</span>: <span class="number">100</span>})
+closes = [c[<span class="string">"close"</span>] <span class="keyword">for</span> c <span class="keyword">in</span> r.json()[<span class="string">"data"</span>][<span class="string">"rows"</span>]]
+
+<span class="comment"># RSI calculation</span>
+d = np.diff(closes)
+rsi = <span class="number">100</span> - <span class="number">100</span>/(1 + np.mean(d[d>0])/abs(np.mean(d[d<0])))
+
+<span class="keyword">if</span> rsi < <span class="number">30</span>: client.buy(<span class="string">"ETH"</span>, usd=<span class="number">100</span>)
+<span class="keyword">elif</span> rsi > <span class="number">70</span>: client.sell(<span class="string">"ETH"</span>, usd=<span class="number">100</span>)</code></pre>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-header">
+                        <span style="font-size:28px">🔔</span>
+                        <h3>Mean Reversion</h3>
+                    </div>
+                    <div class="template-meta">
+                        <span>⭐⭐⭐ Advanced</span>
+                        <span>Range-bound</span>
+                        <span>Dynamic Sizing</span>
+                    </div>
+                    <p>Bollinger Band strategy — buys at lower band, sells at upper. Uses TWAP from the Agent class for smooth execution.</p>
+                    <pre><code><span class="keyword">from</span> arthur_sdk <span class="keyword">import</span> Arthur, Agent
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+client = Arthur.from_credentials_file(<span class="string">"creds.json"</span>)
+agent = Agent(client, max_position_usd=<span class="number">1000</span>)
+
+<span class="comment"># Bollinger Bands from 1h closes</span>
+mid = np.mean(closes[-<span class="number">20</span>:])
+std = np.std(closes[-<span class="number">20</span>:])
+price = client.price(<span class="string">"ETH"</span>)
+
+<span class="keyword">if</span> price <= mid - <span class="number">2</span>*std:
+    <span class="comment"># TWAP buy $200 over 10 min</span>
+    agent.twap(<span class="string">"ETH"</span>, <span class="string">"BUY"</span>, total_usd=<span class="number">200</span>,
+        duration=<span class="number">600</span>, slices=<span class="number">5</span>)</code></pre>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <a href="https://github.com/arthur-orderly/agent-templates" class="btn">View All Templates on GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SHOWCASE SECTION                                        -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <h2>🤖 Live Agents on Arthur</h2>
+            <p class="section-sub">Real agents trading 24/7 on Arthur DEX. Built with the SDK, powered by Orderly liquidity.</p>
+
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-card-header">
+                        <span class="agent-avatar">🦊</span>
+                        <h3>Arthur MM</h3>
+                        <span class="status-badge">🟢 Live</span>
+                    </div>
+                    <div class="agent-type">Market Maker</div>
+                    <div class="agent-desc">Provides two-sided liquidity on ORDER/HYPE pairs. Continuously quotes bid/ask with dynamic spread adjustment based on volatility. Arthur's own market-making agent.</div>
+                    <div class="agent-stats">
+                        <div class="stat-item"><div class="stat-val">14.2K</div><div class="stat-lbl">Trades</div></div>
+                        <div class="stat-item"><div class="stat-val">$2.1M</div><div class="stat-lbl">Volume</div></div>
+                        <div class="stat-item"><div class="stat-val">64%</div><div class="stat-lbl">Win Rate</div></div>
+                        <div class="stat-item"><div class="stat-val">87d</div><div class="stat-lbl">Active</div></div>
+                    </div>
+                </div>
+
+                <div class="showcase-card">
+                    <div class="showcase-card-header">
+                        <span class="agent-avatar">📊</span>
+                        <h3>GridMaster</h3>
+                        <span class="status-badge">🟢 Live</span>
+                    </div>
+                    <div class="agent-type">Grid Trader</div>
+                    <div class="agent-desc">Grid trading ETH in the $1,900–$2,100 range with 10 levels. Profits from sideways price action by buying low and selling high within the grid.</div>
+                    <div class="agent-stats">
+                        <div class="stat-item"><div class="stat-val">3,847</div><div class="stat-lbl">Trades</div></div>
+                        <div class="stat-item"><div class="stat-val">$512K</div><div class="stat-lbl">Volume</div></div>
+                        <div class="stat-item"><div class="stat-val">71%</div><div class="stat-lbl">Win Rate</div></div>
+                        <div class="stat-item"><div class="stat-val">42d</div><div class="stat-lbl">Active</div></div>
+                    </div>
+                </div>
+
+                <div class="showcase-card">
+                    <div class="showcase-card-header">
+                        <span class="agent-avatar">🧠</span>
+                        <h3>AlphaSeeker</h3>
+                        <span class="status-badge">🟢 Live</span>
+                    </div>
+                    <div class="agent-type">Momentum Agent</div>
+                    <div class="agent-desc">RSI-based momentum strategy on BTC and ETH. Buys oversold conditions, shorts overbought. Uses 4h candles with adaptive position sizing.</div>
+                    <div class="agent-stats">
+                        <div class="stat-item"><div class="stat-val">892</div><div class="stat-lbl">Trades</div></div>
+                        <div class="stat-item"><div class="stat-val">$347K</div><div class="stat-lbl">Volume</div></div>
+                        <div class="stat-item"><div class="stat-val">58%</div><div class="stat-lbl">Win Rate</div></div>
+                        <div class="stat-item"><div class="stat-val">63d</div><div class="stat-lbl">Active</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <a href="https://github.com/arthur-orderly/agent-trading-sdk#quickstart" class="btn">Start Building →</a>
+                <a href="https://orderly-dashboard-eight.vercel.app" class="btn btn-outline" style="margin-left:16px">View All Agents</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- DEPLOY SECTION                                          -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="deploy" id="deploy">
+        <div class="container">
+            <h2>🚀 Deploy Your Agent</h2>
+            <p class="section-sub">Go from local bot to 24/7 trading machine in under 5 minutes. Free tiers available on most platforms.</p>
+
+            <div class="deploy-grid">
+                <div class="deploy-card">
+                    <div class="deploy-header">
+                        <span style="font-size:28px">🚂</span>
+                        <h3>Railway</h3>
+                        <span class="deploy-tag">Easiest</span>
+                    </div>
+                    <p>Git push and done. Automatic deploys, built-in logging, environment variable management.</p>
+                    <pre><code>$ railway login
+$ railway init
+$ railway up</code></pre>
+                </div>
+
+                <div class="deploy-card">
+                    <div class="deploy-header">
+                        <span style="font-size:28px">🎨</span>
+                        <h3>Render</h3>
+                        <span class="deploy-tag">Free Tier</span>
+                    </div>
+                    <p>750 free hours/month. Connect your repo and Render handles the rest. Great for getting started.</p>
+                    <pre><code>$ git push origin main
+# Auto-deploys via render.yaml
+# 750 hrs/mo free tier</code></pre>
+                </div>
+
+                <div class="deploy-card">
+                    <div class="deploy-header">
+                        <span style="font-size:28px">☁️</span>
+                        <h3>AWS / Cloud</h3>
+                        <span class="deploy-tag">Scalable</span>
+                    </div>
+                    <p>Full control with Docker. Works on AWS, GCP, Azure, or any cloud with container support.</p>
+                    <pre><code>$ docker build -t my-agent .
+$ docker run -d \
+  --env-file .env \
+  --restart always my-agent</code></pre>
+                </div>
+
+                <div class="deploy-card">
+                    <div class="deploy-header">
+                        <span style="font-size:28px">🖥️</span>
+                        <h3>VPS</h3>
+                        <span class="deploy-tag">$3–5/mo</span>
+                    </div>
+                    <p>Maximum control on a cheap VPS. Systemd keeps your agent alive through reboots. Perfect for power users.</p>
+                    <pre><code>$ scp -r my-agent/ vps:~/
+$ ssh vps
+$ sudo systemctl enable arthur-agent
+$ sudo systemctl start arthur-agent</code></pre>
+                </div>
+            </div>
+
+            <div class="section-cta" style="text-align:center;margin-top:40px">
+                <a href="https://github.com/arthur-orderly/agent-trading-sdk#deploy-your-agent" class="btn">Full Hosting Guide →</a>
+            </div>
+        </div>
+    </section>
+
     <section class="cta">
         <div class="container">
             <h2>Start Trading in 60 Seconds</h2>
             <p>Install the SDK, add your credentials, and execute your first trade.</p>
             <div class="hero-buttons">
-                <a href="https://docs.arthurdex.com/quickstart/" class="btn">Read the Docs →</a>
+                <a href="https://github.com/arthur-orderly/agent-trading-sdk#quickstart" class="btn">Read the Docs →</a>
                 <a href="https://arthurdex.com" class="btn btn-outline">Trade Now</a>
             </div>
         </div>
