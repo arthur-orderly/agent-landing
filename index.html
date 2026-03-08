@@ -40,50 +40,65 @@
         
         /* Nav */
         nav {
-            padding: 20px 0;
+            padding: 0;
             border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
             background: var(--bg);
             z-index: 50;
+            height: 48px;
         }
         
         nav .container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            height: 100%;
+            gap: 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 22px;
+            gap: 8px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text);
             text-decoration: none;
+            margin-right: 24px;
+            flex-shrink: 0;
         }
         
         .logo img {
-            height: 32px;
+            height: 24px;
             width: auto;
         }
         
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 0;
             list-style: none;
+            align-items: center;
+            height: 100%;
         }
         
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
             font-weight: 500;
+            font-size: 14px;
+            padding: 0 12px;
+            height: 48px;
+            display: flex;
+            align-items: center;
             transition: color 0.2s;
         }
         
         .nav-links a:hover {
             color: var(--text);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
         }
         
         .btn {
@@ -651,6 +666,9 @@
         }
         
         /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+        }
         @media (max-width: 768px) {
             .hero h1 { font-size: 40px; }
             .stats { grid-template-columns: repeat(2, 1fr); }
@@ -659,23 +677,25 @@
             .template-grid { grid-template-columns: 1fr; }
             .showcase-grid { grid-template-columns: 1fr; }
             .deploy-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <a href="https://agents.arthurdex.com" class="logo"><img src="https://arthurdex.com/logo.webp" alt="Arthur"></a>
+            <a href="https://arthurdex.com" class="logo"><img src="https://arthurdex.com/logo.webp" alt="Arthur"></a>
             <ul class="nav-links">
-                <li><a href="https://agents.arthurdex.com">Home</a></li>
-                <li><a href="#templates">Templates</a></li>
-                <li><a href="#agents">Agents</a></li>
-                <li><a href="#deploy">Deploy</a></li>
-                <li><a href="https://docs.arthurdex.com">Docs</a></li>
-                <li><a href="https://pypi.org/project/arthur-sdk/" target="_blank">SDK (PyPI)</a></li>
+                <li><a href="https://arthurdex.com">Trade</a></li>
+                <li><a href="https://arthurdex.com/portfolio">Portfolio</a></li>
+                <li><a href="https://arthurdex.com/markets">Markets</a></li>
+                <li><a href="https://arthurdex.com/leaderboard">Leaderboard</a></li>
+                <li><a href="https://arthurdex.com/vaults">Vaults</a></li>
+                <li><a href="https://arthurdex.com/rewards">Rewards</a></li>
+                <li><a href="https://arthurdex.com/points">Points</a></li>
+                <li><a href="https://arthurdex.com/swap">Swap</a></li>
+                <li><a href="https://agents.arthurdex.com" class="active">Agents</a></li>
+                <li><a href="https://terminal.arthurdex.com">Terminal</a></li>
             </ul>
-            <a href="https://arthurdex.com" class="btn">Trade →</a>
         </div>
     </nav>
 
