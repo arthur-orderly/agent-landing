@@ -670,11 +670,10 @@
             <ul class="nav-links">
                 <li><a href="https://agents.arthurdex.com">Home</a></li>
                 <li><a href="#templates">Templates</a></li>
-                <li><a href="#showcase">Showcase</a></li>
+                <li><a href="#agents">Agents</a></li>
                 <li><a href="#deploy">Deploy</a></li>
-                <li><a href="https://github.com/arthur-orderly/agent-trading-sdk">Docs</a></li>
-                <li><a href="https://github.com/arthur-orderly/agent-trading-sdk">GitHub</a></li>
-                <li><a href="https://volume.arthurdex.com/">Volume</a></li>
+                <li><a href="https://docs.arthurdex.com">Docs</a></li>
+                <li><a href="https://pypi.org/project/arthur-sdk/" target="_blank">SDK (PyPI)</a></li>
             </ul>
             <a href="https://arthurdex.com" class="btn">Trade →</a>
         </div>
@@ -689,8 +688,8 @@
             <p>Arthur DEX is the only perpetual futures exchange built specifically for AI agents. Powered by Orderly.</p>
             
             <div class="hero-buttons">
-                <a href="https://github.com/arthur-orderly/agent-trading-sdk#quickstart" class="btn">Get Started →</a>
-                <a href="https://github.com/arthur-orderly/agent-trading-sdk" class="btn btn-outline">View on GitHub</a>
+                <a href="https://docs.arthurdex.com" class="btn">Get Started →</a>
+                <a href="https://pypi.org/project/arthur-sdk/" class="btn btn-outline">View SDK on PyPI</a>
             </div>
             
             <div class="code-block">
@@ -891,64 +890,60 @@ price = client.price(<span class="string">"ETH"</span>)
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- SHOWCASE SECTION                                        -->
     <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="showcase" id="showcase">
+    <section class="showcase" id="agents">
         <div class="container">
-            <h2>🤖 Live Agents on Arthur</h2>
-            <p class="section-sub">Real agents trading 24/7 on Arthur DEX. Built with the SDK, powered by Orderly liquidity.</p>
+            <h2>🤖 Agents on Arthur</h2>
+            <p class="section-sub">Real agents that have traded on Arthur DEX. Built with the SDK, powered by Orderly liquidity.</p>
 
             <div class="showcase-grid">
                 <div class="showcase-card">
                     <div class="showcase-card-header">
-                        <span class="agent-avatar">🦊</span>
-                        <h3>Arthur MM</h3>
+                        <span class="agent-avatar">💰</span>
+                        <h3>Funding Arb Bot</h3>
+                        <span class="status-badge" style="background:#F59E0B20;color:#F59E0B;">⏸️ Paused</span>
+                    </div>
+                    <div class="agent-type">Funding Rate Arbitrage</div>
+                    <div class="agent-desc">Captures funding rate differentials across venues. Goes long on negative funding, short on positive. Built with arthur-sdk, ran live for weeks on SOL and ETH pairs.</div>
+                    <div class="agent-stats">
+                        <div class="stat-item"><div class="stat-val">$74K</div><div class="stat-lbl">Volume</div></div>
+                        <div class="stat-item"><div class="stat-val">SOL/ETH</div><div class="stat-lbl">Pairs</div></div>
+                        <div class="stat-item"><div class="stat-val">Live</div><div class="stat-lbl">Tested</div></div>
+                    </div>
+                </div>
+
+                <div class="showcase-card">
+                    <div class="showcase-card-header">
+                        <span class="agent-avatar">📈</span>
+                        <h3>RSI Momentum (Unlockoor)</h3>
                         <span class="status-badge">🟢 Live</span>
+                    </div>
+                    <div class="agent-type">Momentum Strategy</div>
+                    <div class="agent-desc">RSI-based strategy: longs BTC when RSI &lt; 45, shorts alts when RSI &gt; 55. Uses 4h candles with position sizing based on signal strength. Running live on Orderly.</div>
+                    <div class="agent-stats">
+                        <div class="stat-item"><div class="stat-val">BTC/ETH</div><div class="stat-lbl">Pairs</div></div>
+                        <div class="stat-item"><div class="stat-val">4h</div><div class="stat-lbl">Timeframe</div></div>
+                        <div class="stat-item"><div class="stat-val">Live</div><div class="stat-lbl">Status</div></div>
+                    </div>
+                </div>
+
+                <div class="showcase-card">
+                    <div class="showcase-card-header">
+                        <span class="agent-avatar">🦊</span>
+                        <h3>Arthur MM v4</h3>
+                        <span class="status-badge" style="background:#EF444420;color:#EF4444;">🔴 Retired</span>
                     </div>
                     <div class="agent-type">Market Maker</div>
-                    <div class="agent-desc">Provides two-sided liquidity on ORDER/HYPE pairs. Continuously quotes bid/ask with dynamic spread adjustment based on volatility. Arthur's own market-making agent.</div>
+                    <div class="agent-desc">Market-making agent with OBI, VPIN, and GLFT inventory skewing. Ran on ORDER, HYPE, and SOL pairs. Retired after adverse selection on low-liquidity venues proved unprofitable — an honest lesson in MM economics.</div>
                     <div class="agent-stats">
-                        <div class="stat-item"><div class="stat-val">14.2K</div><div class="stat-lbl">Trades</div></div>
-                        <div class="stat-item"><div class="stat-val">$2.1M</div><div class="stat-lbl">Volume</div></div>
-                        <div class="stat-item"><div class="stat-val">64%</div><div class="stat-lbl">Win Rate</div></div>
-                        <div class="stat-item"><div class="stat-val">87d</div><div class="stat-lbl">Active</div></div>
-                    </div>
-                </div>
-
-                <div class="showcase-card">
-                    <div class="showcase-card-header">
-                        <span class="agent-avatar">📊</span>
-                        <h3>GridMaster</h3>
-                        <span class="status-badge">🟢 Live</span>
-                    </div>
-                    <div class="agent-type">Grid Trader</div>
-                    <div class="agent-desc">Grid trading ETH in the $1,900–$2,100 range with 10 levels. Profits from sideways price action by buying low and selling high within the grid.</div>
-                    <div class="agent-stats">
-                        <div class="stat-item"><div class="stat-val">3,847</div><div class="stat-lbl">Trades</div></div>
-                        <div class="stat-item"><div class="stat-val">$512K</div><div class="stat-lbl">Volume</div></div>
-                        <div class="stat-item"><div class="stat-val">71%</div><div class="stat-lbl">Win Rate</div></div>
-                        <div class="stat-item"><div class="stat-val">42d</div><div class="stat-lbl">Active</div></div>
-                    </div>
-                </div>
-
-                <div class="showcase-card">
-                    <div class="showcase-card-header">
-                        <span class="agent-avatar">🧠</span>
-                        <h3>AlphaSeeker</h3>
-                        <span class="status-badge">🟢 Live</span>
-                    </div>
-                    <div class="agent-type">Momentum Agent</div>
-                    <div class="agent-desc">RSI-based momentum strategy on BTC and ETH. Buys oversold conditions, shorts overbought. Uses 4h candles with adaptive position sizing.</div>
-                    <div class="agent-stats">
-                        <div class="stat-item"><div class="stat-val">892</div><div class="stat-lbl">Trades</div></div>
-                        <div class="stat-item"><div class="stat-val">$347K</div><div class="stat-lbl">Volume</div></div>
-                        <div class="stat-item"><div class="stat-val">58%</div><div class="stat-lbl">Win Rate</div></div>
-                        <div class="stat-item"><div class="stat-val">63d</div><div class="stat-lbl">Active</div></div>
+                        <div class="stat-item"><div class="stat-val">SOL</div><div class="stat-lbl">Last Pair</div></div>
+                        <div class="stat-item"><div class="stat-val">v4</div><div class="stat-lbl">Version</div></div>
+                        <div class="stat-item"><div class="stat-val">Retired</div><div class="stat-lbl">Status</div></div>
                     </div>
                 </div>
             </div>
 
             <div class="section-cta">
-                <a href="https://github.com/arthur-orderly/agent-trading-sdk#quickstart" class="btn">Start Building →</a>
-                <a href="https://orderly-dashboard-eight.vercel.app" class="btn btn-outline" style="margin-left:16px">View All Agents</a>
+                <a href="https://docs.arthurdex.com" class="btn">Start Building →</a>
             </div>
         </div>
     </section>
@@ -1014,7 +1009,7 @@ $ sudo systemctl start arthur-agent</code></pre>
             </div>
 
             <div class="section-cta" style="text-align:center;margin-top:40px">
-                <a href="https://github.com/arthur-orderly/agent-trading-sdk#deploy-your-agent" class="btn">Full Hosting Guide →</a>
+                <a href="https://docs.arthurdex.com" class="btn">Full Hosting Guide →</a>
             </div>
         </div>
     </section>
@@ -1024,7 +1019,7 @@ $ sudo systemctl start arthur-agent</code></pre>
             <h2>Start Trading in 60 Seconds</h2>
             <p>Install the SDK, add your credentials, and execute your first trade.</p>
             <div class="hero-buttons">
-                <a href="https://github.com/arthur-orderly/agent-trading-sdk#quickstart" class="btn">Read the Docs →</a>
+                <a href="https://docs.arthurdex.com" class="btn">Read the Docs →</a>
                 <a href="https://arthurdex.com" class="btn btn-outline">Trade Now</a>
             </div>
         </div>
